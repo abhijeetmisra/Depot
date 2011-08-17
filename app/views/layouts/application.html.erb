@@ -13,14 +13,20 @@
   <div id="banner"> 
     <%= image_tag("logo.png") %>
     <%= @page_title || "Pragmatic Bookshelf" %><!-- <label id="code.depot.e.title"/> --> 
+
   </div> 
   <div id="columns"> 
     <div id="side"> 
-	  <%= Time.now.strftime("%Y-%m-%d %H:%M:%S")%><br /><br />
-      <a href="http://www....">Home</a><br /> 
-      <a href="http://www..../faq">Questions</a><br /> 
-      <a href="http://www..../news">News</a><br /> 
-      <a href="http://www..../contact">Contact</a><br /> 
+        <% if @cart %>	
+	    	<%= hidden_div_if(@cart.line_items.empty?, :id => "cart") do %> 
+				<%= render @cart %>
+			<% end %>
+		<% end %>
+	  	<%= Time.now.strftime("%Y-%m-%d %H:%M:%S")%><br /><br />
+      	<a href="http://www....">Home</a><br /> 
+      	<a href="http://www..../faq">Questions</a><br /> 
+      	<a href="http://www..../news">News</a><br /> 
+      	<a href="http://www..../contact">Contact</a><br /> 
 
 
     </div> 
@@ -28,5 +34,6 @@
       <%= yield %><!-- <label id="code.depot.e.include"/> --> 
     </div> 
   </div> 
+
 </body> 
 </html>
