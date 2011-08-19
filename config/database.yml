@@ -16,14 +16,7 @@ test:
   timeout: 5000
 
 production:
-  adapter: mysql2
-  encoding: utf8
-  reconnect: false
-  database: depot_production
-  host: localhost
-  username: abhijeet
-  password: password
-  host: localhost
+  adapter: 
   pool: 5
   timeout: 5000
 
